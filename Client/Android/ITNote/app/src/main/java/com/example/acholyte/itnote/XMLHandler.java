@@ -5,6 +5,7 @@ import android.content.Context;
 import android.os.Handler;
 import android.os.Message;
 import android.os.NetworkOnMainThreadException;
+import android.util.Log;
 
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
@@ -50,7 +51,11 @@ public class XMLHandler {
         @Override
         public void run() {
             String result = getXML(mAddr);
-            mMap = parse(result);
+
+            if (result != null) {
+                mMap = parse(result);
+            }
+
             Message msg = mHandler.obtainMessage();
             mHandler.sendMessage(msg);
         }
@@ -64,7 +69,7 @@ public class XMLHandler {
             URL url = new URL(addr);
             HttpURLConnection conn = (HttpURLConnection) url.openConnection(); // 해당 URL에 연결
 
-            conn.setConnectTimeout(10000); // 타임아웃: 10초
+            conn.setConnectTimeout(1000); // 타임아웃: 1초
             conn.setUseCaches(false); // 캐시 사용 안 함
             conn.setRequestMethod("POST"); // POST로 연결
 
@@ -72,12 +77,12 @@ public class XMLHandler {
                 String line;
                 BufferedReader br = new BufferedReader(new InputStreamReader(conn.getInputStream())); // XML을 읽기 위한 입력 스트림
 
-                while ((line = br.readLine()) != null)
+                while ((line = br.readLine()) != null) {
                     xml.append(line);
+                }
                 br.close();
-            } else {
-                return null;
             }
+
             conn.disconnect();
         } catch (NetworkOnMainThreadException ne) {
             ne.printStackTrace();

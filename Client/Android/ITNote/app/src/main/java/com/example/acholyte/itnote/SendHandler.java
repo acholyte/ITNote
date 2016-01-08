@@ -64,7 +64,7 @@ public class SendHandler {
             URL url = new URL(addr);
             HttpURLConnection conn = (HttpURLConnection) url.openConnection(); // 해당 URL에 연결
 
-            conn.setConnectTimeout(10000); // 타임아웃: 10초
+            conn.setConnectTimeout(1000); // 타임아웃: 1초
             conn.setUseCaches(false); // 캐시 사용 안 함
             conn.setRequestMethod("POST"); // POST로 연결
 

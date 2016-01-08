@@ -7,6 +7,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Parcelable;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -193,6 +194,7 @@ public class ITNote extends Activity {
             SendHandler send = new SendHandler();
             String latest =
                     send.init(context, null, "http://acholyte.iptime.org:8000/dictionary/notify.php");
+            Log.e("ITNote", latest);
 
             if (latest.equals(helper.getLatestRecordTime())) { // 서버 버전과 로컬 버전이 차이가 없는 경우
                 map = helper.dbRead();
