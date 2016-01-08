@@ -1,0 +1,24 @@
+<resources>
+    <string name="app_name">ITNote</string>
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_show">ShowActivity</string>
+    <string name="connect_fail">Connection Failed</string>
+    <string name="connect_fail_desc">Connection Failed. Can only search.</string>
+    <string name="ok">OK</string>
+    <string name="insert">Insert</string>
+    <string name="insert_desc">Will you insert this item?</string>
+    <string name="delete">Delete</string>
+    <string name="delete_desc">Will you delete this item?</string>
+    <string name="update">Update</string>
+    <string name="update_desc">Will you update this item?</string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
+    <string name="done">The work is done.</string>
+    <string name="wait">Wait, Please...</string>
+    <string name="doing">Doing</string>
+    <string name="timeout">The traffic flow is not smooth.</string>
+    <string name="error">Error</string>
+    <string name="blank">Subject and content are can\'t be blank.</string>
+    <string name="notchange">Subject and content are not changed from previous thing.</string>
+    <string name="samesub">This subject already exist.</string>
+</resources>
